@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="agenda">
+<head>
+	<meta charset="utf-8">
+	<title>Agenda</title>
+	<link rel="stylesheet" type="text/css" href="http://localhost:3020/semantic/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost:3020/semantic/style.css">
+</head>
+<body>
+{{#if logged}}
+	<div class="ui secondary pointing menu" ng-controller="loginCtrl" style="background-color:#424242;">
+   <a class="item" href="http://localhost:3020/home">
+    <i class="dashboard  icon dash"></i>
+  </a>
+  <a style="color:#ECF6CE" class="item" href="http://localhost:3020/registro">
+    Regsitro
+  </a>
+  <a style="color:#ECF6CE" class="item" href="http://localhost:3020/desarrolladores">
+    Desarrolladores
+  </a>
+   <div class="right menu">
+    <a class="ui item" ng-click="logout()">
+      <i class="sign out  icon large"></i>
+      <label class="large">
+    logOut
+      </label>
+    </a>
+  </div>
+</div>
+{{/if}}
+	{{{body}}}
+</body>
+<footer>
+<center>
+  <img src="img/code.png" width="35px">
+</center>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://localhost:3020/semantic/semantic.min.js"></script>
+<script src="http://localhost:3020/semantic/jq.js"></script>
+<script type="application/javascript" src="http://localhost:3020/build.js"></script>
+
+</html>

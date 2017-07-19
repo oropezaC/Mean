@@ -1,0 +1,35 @@
+<div ng-controller="loginCtrl">
+	<br>
+	<br>
+	<div class="ui three column very relaxed grid">
+		<div class="column">
+		</div>
+		<div class="column">
+			<div class="ui form segment error">
+				<div class="field error">
+					<label>Usuario</label>
+					<div class="ui left icon input">
+						<input type="text" placeholder="Usuario" ng-focus="usernot=false" name="user" ng-model="user.usuario">
+						<i class="user icon"></i>
+					</div>
+					<span ng-show="usernot" style="color:red;">Ingrese Usuario</span>
+					{{!-- <div  class="ui basic red pointing prompt label transition visible">Ingrese Usuario</div> --}}
+				</div>
+				<div class="field error">
+					<label>Contraseña</label>
+					<div class="ui left icon input">
+						<input type="password" name="pass" ng-focus="passnot=false" ng-model="user.password">
+						<i class="lock icon"></i>
+					</div>
+					<span ng-show="passnot" style="color:red;">Ingrese Password</span>
+					{{!-- <div ng-hide=true class="ui basic red pointing prompt label transition visible">Ingrese Password</div> --}}
+				</div>
+				<div  class="ui blue submit button" ng-click="log(user)">Login</div>
+			</div>
+			<span ng-show="out"><h1 style="color:red;text-align:center">Sesion Invalida</h1></span>
+		</div>
+		<div class="column">
+		</div>
+	</div>
+
+</div>
