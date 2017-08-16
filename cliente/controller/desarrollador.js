@@ -21,18 +21,26 @@ angular.module('agenda')
 
 	$scope.save=function(d){
 		$scope.btnSave=true;
-		save.saveDev(d)
-		.then(function(result){
-			console.log(result.data.err);
-			if (result.data.err == false) {
-				$scope.btnSave=false;
-				$('.ui.modal')
-				.modal('show');
-			}else{
-				console.log("Error al cargar");
-			}
-		});	
+		if (d == undefined) {
+			$scope.msgErr = true;
+		}else if (d.nombre==undefined||d.paterno==undefined||d.materno==undefined||d.calle==undefined||d.colonia==undefined||d.delegacion==undefined||d.cp==undefined||d.celular==undefined||d.correo==undefined||d.skill==undefined) {
+			$scope.msgErr = true;
+		}else{
+			save.saveDev(d)
+			.then(function(result){
+				console.log(result.data.err);
+				if (result.data.err == false) {
+					$scope.btnSave=false;
+					$('.ui.modal')
+					.modal('show');
+				}else{
+					console.log("Error al cargar");
+				}
+			});	
+			
+		}
 	}
+
 
 
 	$scope.nuevoReg=function(){

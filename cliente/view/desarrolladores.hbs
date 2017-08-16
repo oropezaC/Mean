@@ -1,9 +1,16 @@
-<div ng-controller="developerCtrl" ng-init="devs()">
+<div ng-controller="developerCtrl" ng-init="devs()" class="ui segment">
+<div class="ui active page dimmer" ng-hide="developers">
+    <div class="ui massive text loader">Espera...</div>
+  </div>
   <center>
     <h1>Desarrolladores</h1>
   </center>
   <hr>
   <div class="ui container">
+      <div class="ui icon input">
+      <input type="text" placeholder="Search..." ng-model="buscar">
+      <i class="circular search icon"></i>
+    </div>
   <table class="ui celled table">
       <thead>
         <tr>
@@ -17,9 +24,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat=" dev in developers">
+        <tr ng-repeat=" dev in developers | filter : buscar ">
           <td style="text-align:center"><img class="ui avatar image" src="img/avtr.png"></td>
-          <td>{[dev.nombre]} {[dev.paterno]} {[dev.materno]}</td>
+          <td style="text-transform: capitalize">{[dev.nombre]} {[dev.paterno]} {[dev.materno]}</td>
           <td>{[dev.fecha_reg]}</td>
           <td>{[dev.correo]}</td>
           <td>{[dev.toll]}</td>
